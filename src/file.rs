@@ -5,6 +5,12 @@ pub struct File {
 }
 
 impl File {
+    pub fn create(path : &String)->Self {
+        Self {
+            file : OpenOptions::new().
+                read(true).write(true).create(true).open(path).unwrap()
+        }
+    }
     pub fn open(path : &String, option : Option)->Self {
         Self {
             file : OpenOptions::new().
